@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Catalogue d'Articles</title>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+	<style>
+
+		body {
+			font-family: 'Roboto', sans-serif;
+			margin: 0;
+			padding: 0;
+			background: linear-gradient(white, #f0f0f0);
+			perspective: 1000px;
+		}
+
+		.navbar {
+			background-color: #333;
+			color: white;
+			padding: 15px;
+			text-align: center;
+			box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+		}
+
+		.navbar a {
+			color: white;
+			margin: 0 20px;
+			text-decoration: none;
+			font-weight: bold;
+			transition: color 0.3s;
+		}
+
+		.navbar a:hover {
+			color: #ff9900;
+		}
+
+		.container {
+			display: flex;
+			flex-wrap: wrap;
+			padding: 20px;
+			justify-content: center;
+		}
+
+		.item {
+			background: white;
+			border-radius: 10px;
+			margin: 15px;
+			padding: 20px;
+			width: calc(25% - 40px);
+			box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+			transition: transform 0.3s, box-shadow 0.3s;
+			overflow: hidden;
+			text-align: center;
+		}
+
+		.item img {
+			width: 100%;
+			height: auto;
+			border-radius: 5px;
+			margin-bottom: 10px;
+		}
+
+		.item:hover {
+			transform: translateY(-5px);
+			box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+		}
+
+		.item h3 {
+			margin: 0;
+			color: #333;
+		}
+
+		.item p {
+			margin: 10px 0;
+			color: #555;
+		}
+
+		.item .price {
+			font-weight: bold;
+			color: #ff9900;
+		}
+
+		.whatsapp-btn {
+			display: inline-block;
+			margin-top: 10px;
+			padding: 10px;
+			background-color: #25D366;
+			color: white;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+			text-decoration: none;
+			text-align: center;
+		}
+
+		.whatsapp-btn:hover {
+			background-color: #128C7E;
+		}
+	</style>
+</head>
+
+<body>
+
+	<div class="navbar">
+		<a href="#tshirts">T-shirts</a>
+		<a href="#sweats">Sweats</a>
+		<a href="#cargo">Cargo</a>
+		<a href="#shorts">Shorts</a>
+	</div>
+
+	<div class="container">
+		<div class="item" id="tshirts">
+            <img src="MR DARK (12).png" alt="Pantalon Cargo">
+			<h3>T-shirt overseize</h3>
+			<p>Description: T-shirt 100% coton, confortable et durable.</p>
+			<p class="price">Prix: 7500 Fcfa</p>
+			<a href="#" class="whatsapp-btn"
+				onclick="sendWhatsApp('T-shirt Basique', 'T-shirt 100% coton, confortable et durable.', '15€')">Commander
+				via WhatsApp</a>
+		</div>
+
+		<div class="item" id="sweats">
+						<img src="MR DARK (10).png" alt="sweat a capuche">
+			<h3>Sweat à Capuche</h3>
+			<p>Description: Sweat en molleton, idéal pour les journées fraîches.</p>
+			<p class="price">Prix: 1200 Fcfa</p>
+			<a href="#" class="whatsapp-btn"
+				onclick="sendWhatsApp('Sweat à Capuche', 'Sweat en molleton, idéal pour les journées fraîches.', '30€')">Commander
+				via WhatsApp</a>
+		</div>
+
+        <div class="item" id="sweats">
+            <img src="MR DARK (13).png" alt="sweat a capuche">
+<h3>T-shirt Noir</h3>
+<p>Description: T-shirt Noir, idéal pour les journées date, balade soirée pote.</p>
+<p class="price">Prix: 7500 Fcfa</p>
+<a href="#" class="whatsapp-btn"
+    onclick="sendWhatsApp('T-shirts', '7500 Fcfa')">Commander
+    via WhatsApp</a>
+</div>
+
+<div class="item" id="sweats">
+    <img src="MR DARK (4).png" alt="sweat a capuche">
+<h3>Short Cargo</h3>
+<p>Description: short Cargo en jean de très bonne qualité.</p>
+<p class="price">Prix: 7500 Fcfa</p>
+<a href="#" class="whatsapp-btn"
+onclick="sendWhatsApp('Short cargo', '7500 Fcfa')">Commander
+via WhatsApp</a>
+</div>
+		
+	</div>
+
+	<script>
+		function sendWhatsApp(name, description, price) {
+        const phoneNumber = '+2250170098155'; // Remplace par le numéro du vendeur
+        const message = `Je voudrais commander:\n\n**${name}**\nDescription: ${description}\nPrix: ${price}`;
+        const whatsappURL = `https://wa.me/${+2250170098155}?text=${encodeURIComponent(message)}`;
+        window.open(whatsappURL, '_blank');
+    }
+
+    // Animation au chargement
+    window.onload = () => {
+        const items = document.querySelectorAll('.item');
+        items.forEach((item, index) => {
+            item.style.opacity = 0;
+            item.style.transform = 'translateY(20px)';
+            setTimeout(() => {
+                item.style.opacity = 1;
+                item.style.transform = 'translateY(0)';
+            }, index * 150);
+        });
+    };
+	</script>
+
+</body>
+
+</html>
